@@ -23,17 +23,18 @@ void foo(vector<int> &v){
     cout<<"\n\n\n"<<endl;
     
 }
+
+class name{
+    public:
+        int bar(int a);
+};
+
+int name::bar(int a){
+    return 2*a;
+}
 int main(){
-   vector<int> * temp=new vector<int>();
-   for(int i=0;i<5;i++){
-       temp->push_back(i);
-   }
-   for(int i=0;i<5;i++){
-       temp->at(i)=10+i;
-   }
-    for(int i=0;i<5;i++){
-       cout<<temp->at(i)<<endl;
-   }
+    name n1;
+    cout<<n1.bar(5)<<endl;
 
     return(0);
 }

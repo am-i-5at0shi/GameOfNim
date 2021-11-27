@@ -1,3 +1,30 @@
-int nimsum(vector<int>& values);
-void makeNim_sum_zero(vector<int>& values,int nimsum);
-void print(vector<int>& values);
+#define GAME_SIZE 5
+
+class Game{
+    private:
+        vector<int> * state;
+        int empty=0;
+        int numberOfPiles=5;
+    public:
+        Game();
+        vector<int> getState();
+        bool updateState(vector<int> & v);
+};
+
+class Jared{
+    public:
+        void makeNim_sum_zero(vector<int>& values,int nimsum);
+        int nimsum(vector<int>& values);
+        int can_finish(vector<int>& stone_piles);
+        void next_move(vector<int>& stone_piles);
+};
+
+
+class UserInterface{
+    private:
+        int row, num;
+        vector<int> curr;
+    public:
+        void take_input();
+        void next_move(vector<int> &v);
+};
