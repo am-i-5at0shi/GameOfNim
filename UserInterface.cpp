@@ -1,17 +1,21 @@
 #include<iostream>
 #include<bits/stdc++.h>
+#include<string>
 #include "Header_file"
 using namespace std;
 
-
-void UserInterface::take_input(){
+Human::Human(string name){
+    this->name=name;
+}
+string Human::get_player_name(){return this->name;}
+void Human::take_input(){
     bool done=false;
     while(!done) {
         cout<<"Enter the pile-number and number of Stone(s) you want to remove..."<<'\n';
-        cin>>UserInterface::row;
-	    cin>>UserInterface::num;
-        if(UserInterface::row < 0 || UserInterface::row > GAME_SIZE ||
-                                    UserInterface::num< 0 || UserInterface::num > curr[UserInterface::row-1]){
+        cin>>Human::row;
+	    cin>>Human::num;
+        if(Human::row < 0 || Human::row > GAME_SIZE ||
+                                    Human::num< 0 || Human::num > curr[Human::row-1]){
         	cout<<"[FAILED] Please Enter possible move: ";
         	continue;
         }
@@ -19,9 +23,9 @@ void UserInterface::take_input(){
     }
 }
 
-void UserInterface::next_move(vector<int> &v){
-    UserInterface::curr=v;
-    UserInterface::take_input();
-    v.at(row-1) -= UserInterface::num;
+void Human::next_move(vector<int> &v){
+    Human::curr=v;
+    Human::take_input();
+    v.at(row-1) -= Human::num;
     return;
 }

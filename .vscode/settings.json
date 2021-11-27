@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "header_file": "cpp"
+        "header_file": "cpp",
+        "iostream": "cpp"
     }
 }

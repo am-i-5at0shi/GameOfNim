@@ -1,5 +1,7 @@
 #include<iostream>
 #include<bits/stdc++.h>
+#include<time.h>
+#include<stdlib.h>
 using namespace std;
 
 void print(vector<int>& values) // print the piles
@@ -33,8 +35,12 @@ int name::bar(int a){
     return 2*a;
 }
 int main(){
+    long t=time(0)%10;
+    srand(t);
     name n1;
-    cout<<n1.bar(5)<<endl;
+    //cout<<n1.bar(5)<<endl;
+    for(int i=0;i<1;i++)
+        cout<<"\t t="<<t<<endl;
 
     return(0);
 }

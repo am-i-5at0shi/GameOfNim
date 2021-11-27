@@ -10,7 +10,9 @@ void Jared::makeNim_sum_zero(vector<int>& values,int nimsum){
     for(int i=31;i>=0;i--){
     	for(int j=0;j<values.size();j++){
     		if((values.at(j) & (1<<i))!=0 && (nimsum & (1<<i))!=0){
+                int temp=values.at(j);
     			values.at(j) = nimsum ^ values.at(j);
+                cout<<"Jared's move:\t row="<<j+1<<" num="<<temp-values.at(j)<<endl;
     			return;
     		}
     	}
@@ -52,6 +54,7 @@ void Jared::next_move(vector<int>& stone_piles){
                 if(stone_piles[index]!=0){
                     int max=stone_piles[index];
                     int sub=1+(rand()%max);
+                    cout<<"Jared's move:\t row="<<index+1<<" num="<<sub<<endl;
                     stone_piles[index] = stone_piles[index] - sub;  //Move taken
                     done=true;
                 }
@@ -60,6 +63,7 @@ void Jared::next_move(vector<int>& stone_piles){
         }
     }
     else{
+        cout<<"Jared's move:\t row="<<suggested_pile+1<<" num="<<stone_piles[suggested_pile]<<endl;
         stone_piles[suggested_pile]=0;
     }
 }

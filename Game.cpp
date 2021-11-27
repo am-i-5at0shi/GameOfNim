@@ -9,13 +9,11 @@ using namespace std;
 Game::Game(){
     this->state = new vector<int>();
     this->empty=0;
-    this->numberOfPiles=5;
+    this->numberOfPiles=GAME_SIZE;
     srand(time(0));
-    for(int i=0;i<5;i++){
-        int temp=1+(i-1)*2;
+    for(int i=0;i<GAME_SIZE;i++){
+        int temp=2*i + 1;
         this->state->push_back(temp);
-        this->empty=0;
-        this->numberOfPiles=GAME_SIZE;
     }
 }
 
@@ -24,6 +22,7 @@ vector<int> Game::getState(){
 }
 
 bool Game::updateState(vector<int> & v){
+    this->empty=0;
     int i=0;
     for(auto it : v){
         this->state->at(i++)=it;

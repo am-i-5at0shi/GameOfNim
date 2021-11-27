@@ -1,30 +1,36 @@
-#define GAME_SIZE 5
+#ifndef INCLUSION_FLAG
 
+#define INCLUSION_FLAG 1
+#define GAME_SIZE 5
 class Game{
     private:
-        vector<int> * state;
+        std::vector<int> * state;
         int empty=0;
         int numberOfPiles=5;
     public:
         Game();
-        vector<int> getState();
-        bool updateState(vector<int> & v);
+        std::vector<int> getState();
+        bool updateState(std::vector<int> & v);
 };
 
 class Jared{
     public:
-        void makeNim_sum_zero(vector<int>& values,int nimsum);
-        int nimsum(vector<int>& values);
-        int can_finish(vector<int>& stone_piles);
-        void next_move(vector<int>& stone_piles);
+        void makeNim_sum_zero(std::vector<int>& values,int nimsum);
+        int nimsum(std::vector<int>& values);
+        int can_finish(std::vector<int>& stone_piles);
+        void next_move(std::vector<int>& stone_piles);
 };
 
 
-class UserInterface{
+class Human{
     private:
+        std::string name;
         int row, num;
-        vector<int> curr;
+        std::vector<int> curr;
     public:
+        Human(std::string name);
+        std::string get_player_name();
         void take_input();
-        void next_move(vector<int> &v);
+        void next_move(std::vector<int> &v);
 };
+#endif
