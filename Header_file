@@ -1,0 +1,3 @@
+int nimsum(vector<int>& values);
+void makeNim_sum_zero(vector<int>& values,int nimsum);
+void print(vector<int>& values);

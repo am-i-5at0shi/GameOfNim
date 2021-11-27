@@ -1,9 +1,10 @@
 #include<iostream>
 #include<bits/stdc++.h>
+#include "Header_file"
 using namespace std;
-int Nimsum(vector<int>& values);
-void MakeNim_sum_zero(vector<int>& values,int nimsum);
-void print(vector<int>& values);
+
+
+
 int main()
 {
          int rows ;
@@ -21,15 +22,7 @@ int main()
          {
         	 int r,v;
         	 print(values);
-        	 while(remaining!=0) {
-        	 cout<<"Enter the row number and value you want to remove..."<<'\n';
-        	 cin>>r;
-        	 cin>>v;
-        	 if(r < 0 || r > rows || v < 0 || v > values[r-1])
-        		 {
-        		   cout<<"Please enter the correct row or value....";
-        		    continue;
-        		 }
+        	 
         	 values.at(r-1) = values.at(r-1) - v;
 
         	 print(values);
@@ -98,35 +91,4 @@ int main()
         	 }
 }
 
-int Nimsum(vector<int>& values) // Calculate the nimsum
- {
-    	int nimsum=0;
-    	for(int i=0;i<values.size();i++)
-    		nimsum=nimsum ^ values.at(i);
-        return nimsum;
-}
-void print(vector<int>& values) // print the piles
-{
-    	for(int i=0;i<values.size();i++)
-    	{
-    		for(int j=0;j<values.at(i);j++)
-    			 cout<<"#"<<" ";
-            cout<<'\n';
-    	}
 
-}
-void MakeNim_sum_zero(vector<int>& values,int nimsum) // Make_sum_zero
-    {
-    	for(int i=31;i>=0;i--)
-    	{
-    		for(int j=0;j<values.size();j++)
-
-    		{
-    			if((values.at(j) & (1<<i))!=0 && (nimsum & (1<<i))!=0)
-    			{
-    				values.at(j) = nimsum ^ values.at(j);
-    				return;
-    			}
-    		}
-    	}
-    }
