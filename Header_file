@@ -17,7 +17,7 @@ class Jared{
     public:
         void makeNim_sum_zero(std::vector<int>& values,int nimsum);
         int nimsum(std::vector<int>& values);
-        int can_finish(std::vector<int>& stone_piles);
+        bool win_move(std::vector<int>& stone_piles);
         void next_move(std::vector<int>& stone_piles);
 };
 

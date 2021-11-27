@@ -26,29 +26,38 @@ int Jared::nimsum(vector<int>& values){
     return nimsum;
 }
 
-int Jared::can_finish(vector<int>& stone_piles){
-    int index,empty=0;
-    bool one_stoned=false;
+bool Jared::win_move(vector<int>& stone_piles){
+    int index,more_stone;
+    int one_stoned=false;
     int i=0;
     for(auto it : stone_piles){
-        if(it==0){empty++;}
-        else if(it==1){one_stoned=true;}
-        else{index=i;}
+        if(it==1){one_stoned++;}
+        else if(it>1){index=i;more_stone++;}
         i++;
     }
 
-    if((empty==stone_piles.size()-2) && one_stoned){return index;}
-    else{return -1;}
+    if(more_stone==1){
+        int temp=stone_piles[index];
+        if(one_stoned%2==0){
+            stone_piles[index]=1;
+            cout<<"Jared's move:\t row="<<index+1<<" num="<<temp-1<<endl;
+        }
+        else{
+            stone_piles[index]=0;
+            cout<<"Jared's move:\t row="<<index+1<<" num="<<temp-1<<endl;
+            }
+        return true;
+    }
+    else{return false;}
 }
 
 void Jared::next_move(vector<int>& stone_piles){
-    srand(time(0));
-    int suggested_pile=Jared::can_finish(stone_piles);
-    if(suggested_pile<0){   //Finishing move not possible in this configuration.
+    if(!Jared::win_move(stone_piles)){   //achieving winning config is not possible in this configuration.
         int sum=Jared::nimsum(stone_piles);
         if(sum!=0){Jared::makeNim_sum_zero(stone_piles, sum);}
         else{   // random move
             bool done=false;
+            srand(time(0));
             while(!done){
                 int index=rand()%(stone_piles.size());
                 if(stone_piles[index]!=0){
@@ -62,10 +71,7 @@ void Jared::next_move(vector<int>& stone_piles){
 
         }
     }
-    else{
-        cout<<"Jared's move:\t row="<<suggested_pile+1<<" num="<<stone_piles[suggested_pile]<<endl;
-        stone_piles[suggested_pile]=0;
-    }
+
 }
 
 

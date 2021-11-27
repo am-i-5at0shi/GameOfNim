@@ -11,12 +11,12 @@ string Human::get_player_name(){return this->name;}
 void Human::take_input(){
     bool done=false;
     while(!done) {
-        cout<<"Enter the pile-number and number of Stone(s) you want to remove..."<<'\n';
+        cout<<"Enter the pile-number and number of stone(s) you want to remove: ";
         cin>>Human::row;
 	    cin>>Human::num;
         if(Human::row < 0 || Human::row > GAME_SIZE ||
                                     Human::num< 0 || Human::num > curr[Human::row-1]){
-        	cout<<"[FAILED] Please Enter possible move: ";
+        	cout<<"[FAILED]: Please Enter possible move: ";
         	continue;
         }
         else{done=true;}
