@@ -44,7 +44,7 @@ bool Jared::win_move(vector<int>& stone_piles){
         }
         else{
             stone_piles[index]=0;
-            cout<<"Jared's move:\t row="<<index+1<<" num="<<temp-1<<endl;
+            cout<<"Jared's move:\t row="<<index+1<<" num="<<temp<<endl;
             }
         return true;
     }
